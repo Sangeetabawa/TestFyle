@@ -1,3 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+
 @import "~@ng-select/ng-select/themes/default.theme.css";
 ng-select.custom .ng-select-container {
     position:left  !important;
@@ -8,3 +10,20 @@ ng-select.custom .ng-select-container {
     background-color: transparent !important;
     border-radius: 0px;
     }
+    
+
+
+
+/*
+   server-side-angular-way.component.css
+*/
+.no-data-available {
+    text-align: center;
+  }
+  
+  /*
+     src/styles.css (i.e. your global style)
+  */
+  .dataTables_empty {
+    display: none;
+  }

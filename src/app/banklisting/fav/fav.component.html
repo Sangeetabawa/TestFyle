@@ -1,0 +1,21 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]='dtTrigger' class="row-border hover">
+    <thead>
+      <tr>
+        <th>Bank name</th>
+        <th>Bank ID</th>
+        <th>IFSC</th>
+        <th>Branch</th>
+        <th>City</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bank of ResponseApi">
+        <td>{{ bank.bank_name }}</td>
+        <td>{{ bank.bank_id }}</td>
+        <td>{{ bank.ifsc }}</td>
+        <td>{{ bank.branch}}</td>
+        <td>{{bank.city}}</td>
+      </tr>
+    </tbody>
+    </table>

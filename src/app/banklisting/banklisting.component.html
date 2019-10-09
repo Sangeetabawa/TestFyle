@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+
+
+<h1>Bank Branches</h1>
+<label>City</label>
+<div>
+  <ng-select class="custom" [items]="cities" bindLabel="name" placeholder="Select city"
+    [(ngModel)]="selectedCity" (change)= cityFilterData($event)>
+  </ng-select>
+</div>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]='dtTrigger' class="row-border hover">
+    <thead>
+      <tr>
+        <th><input type="checkbox">Check for Favourite</th>
+        <th>Bank name</th>
+        <th>Bank ID</th>
+        <th>IFSC</th>
+        <th>Branch</th>
+        <th>City</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bank of ResponseApi">
+        <td><input type="checkbox" [value]="bank.isChecked" [checked]="bank.ischecked"(change)="onCheckboxChange(bank,$event)" ></td>
+        <td>{{ bank.bank_name }}</td>
+        <td>{{ bank.bank_id }}</td>
+        <td>{{ bank.ifsc }}</td>
+        <td>{{ bank.branch}}</td>
+        <td>{{bank.city}}</td>
+      </tr>
+    </tbody>
+        <tfoot>
+            <tr>
+                <th><button type="button" (click)="submit()">Favourite</button></th>
+              <th><input type="text" placeholder="Bank name" name="bank_name"/></th>
+              <th><input type="text" placeholder="Bank ID" name="bank_id"/></th>
+              <th><input type="text" placeholder="IFSC" name="ifsc"/></th>
+              <th><input type="text" placeholder="Branch" name="branch"/></th>
+              <th><input type="text" placeholder="City" name="city"/></th>
+            </tr>
+          </tfoot>
+    </table>
