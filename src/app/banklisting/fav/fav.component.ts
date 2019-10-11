@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs/Subject';
 
 import{BankServiceService} from '../../bank-service.service';
 @Component({
@@ -8,6 +9,8 @@ import{BankServiceService} from '../../bank-service.service';
   styleUrls: ['./fav.component.scss']
 })
 export class FavComponent implements OnInit {
+  dtOptions: DataTables.Settings = {};
+  dtTrigger = new Subject();
   ResponseApi:any;
   constructor(
     private route: ActivatedRoute,
